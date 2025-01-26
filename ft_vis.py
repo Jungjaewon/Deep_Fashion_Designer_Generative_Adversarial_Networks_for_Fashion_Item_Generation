@@ -60,6 +60,7 @@ class FTVIS(object):
 
         self.gpu = train_config['GPU']
         self.gpu = torch.device(f'cuda:{self.gpu}')
+        print(f'device : {self.gpu}')
 
         # Directory
         self.result_dir = osp.join('feature_result')
