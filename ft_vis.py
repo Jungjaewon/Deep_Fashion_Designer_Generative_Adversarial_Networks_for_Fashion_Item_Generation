@@ -10,7 +10,6 @@ import torch.nn.functional as F
 torch.backends.cudnn.benchmark = True
 
 from model import Generator as G
-from model import Encoder as Old_E
 from model import NewEncoder as New_E
 from model import OldEmbedBlock
 from data_loader import get_loader
