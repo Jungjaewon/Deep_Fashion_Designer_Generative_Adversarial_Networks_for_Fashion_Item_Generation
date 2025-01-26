@@ -97,13 +97,8 @@ class FTVIS(object):
         self.Emd.load_state_dict(ckpt_dict['Emd'])
         print('Emd is load')
 
-        if self.encoder_mode == 0:
-            for i in range(self.num_source):
-                self.encoder_list[i].load_state_dict(ckpt_dict[f'E_{i}'])
-                print(f'E_{i} is load')
-        else:
-            self.E.load_state_dict(ckpt_dict['E'])
-            print('E is load')
+        self.E.load_state_dict(ckpt_dict['E'])
+        print('E is load')
 
         print(f'All model is laod from {last_ckpt}')
 
