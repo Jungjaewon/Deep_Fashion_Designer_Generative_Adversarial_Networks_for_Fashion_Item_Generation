@@ -67,7 +67,7 @@ class NewEncoder(nn.Module):
         super(NewEncoder, self).__init__()
         layers = list()
         print(f'E start_ch : {start_channel}, target_ch : {target_channel}, nLayer : {nlayers}, LR : {LR}, att : {att}')
-        self.channel, self = start_channel
+        self.channel = start_channel
         
         # 256 -> 128
         layers.append(ResBlock(img_ch, self.channel, LR=LR))
