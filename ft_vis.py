@@ -63,7 +63,7 @@ class FTVIS(object):
 
         # Directory
         self.result_dir = osp.join('feature_result')
-        os.makedirs(self.tsne_dir, exist_ok=True)
+        os.makedirs(self.result_dir, exist_ok=True)
         self.model_dir = osp.join(train_config['MODEL_DIR'])
         self.build_model()
 
