@@ -1,6 +1,8 @@
 import torch.nn as nn
 import torch
 
+from CBAM import CBAM
+
 class ConvBlock(nn.Module):
 
     def __init__(self, in_channels, out_channels, LR=0.2, spec=False):
