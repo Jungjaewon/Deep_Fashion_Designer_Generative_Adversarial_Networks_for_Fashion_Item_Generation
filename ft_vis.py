@@ -159,8 +159,9 @@ class FTVIS(object):
         latent_code = self.get_latent_code(source_images)
         if self.f_add:
             latent_code = self.add_conditional(latent_code, t_cat)
-        if self.use_emd:
-            latent_code = self.Emd(latent_code)
+        
+        latent_code = self.Emd(latent_code)
+        
         if self.s_add:
             latent_code = self.add_conditional(latent_code, t_cat)
 
