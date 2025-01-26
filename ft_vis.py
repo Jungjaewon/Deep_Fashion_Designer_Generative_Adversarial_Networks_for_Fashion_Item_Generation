@@ -60,7 +60,6 @@ class FTVIS(object):
 
         self.gpu = train_config['GPU']
         self.gpu = torch.device(f'cuda:{self.gpu}')
-        print(f'device : {self.gpu}')
 
         # Directory
         self.result_dir = osp.join('feature_result')
@@ -73,7 +72,7 @@ class FTVIS(object):
         self.G = G(base_channel=encoder_last_ch, n_cls=g_num_cls).to(self.gpu).eval()
 
         e_num_cls = self.num_cls if self.f_add else 0
-        emd_ch = self.encoder_last_ch * self.num_source if self.encoder_mode != 2 else self.encoder_last_ch
+        emd_ch = self.encoder_last_ch * self.num_source
         self.Emd = OldEmbedBlock(emd_ch, num_cls=e_num_cls)
         self.Emd = self.Emd.to(self.gpu).eval()
         
