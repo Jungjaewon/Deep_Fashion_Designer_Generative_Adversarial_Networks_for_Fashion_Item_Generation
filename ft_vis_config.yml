@@ -1,0 +1,35 @@
+
+
+TRAINING_CONFIG:
+
+  WANDB: 'False'
+  EPOCH: 1000
+  IMG_SIZE: 256
+  BATCH_SIZE: 16
+  NEG_RATE : 0.35
+  NEG_MODE : 'BLACK' # BLACK, FIRST, None
+
+  F_ADD : 'False'
+  S_ADD : 'True'
+
+  NUM_ITEM : 5
+  NUM_TARGET : 1
+  DATA_NUM : 5 # 1 ~ 5
+
+  ENCODER_MODE : 1
+
+  LATENT_SIZE : 1
+  LATENT_V : 3 # 0,1,2,3
+  CONCAT_MODE : 0
+
+  # Settings
+  NUM_WORKER : 2
+  MODE : 'result' # 'test', 'metric'?
+  SEED : 0 # 0 means do not set seed
+
+  IMG_DIR : 'outfitdata_set3_4598'
+  TAGGED_PLK : 'outfitdata_set3_tagged.plk'
+  RESULT_DIR : 'fit_vis_result'
+
+  # GPU
+  GPU: 0
