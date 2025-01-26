@@ -67,9 +67,6 @@ class FTVIS(object):
         self.build_model()
 
     def build_model(self):
-
-        assert self.encoder_mode in [0,1,2]
-
         g_num_cls = self.num_cls if self.s_add else 0
         encoder_last_ch = self.encoder_last_ch if self.encoder_mode != 2 else self.encoder_last_ch // 4
         self.G = G(base_channel=encoder_last_ch, n_cls=g_num_cls).to(self.gpu).eval()
