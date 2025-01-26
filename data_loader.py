@@ -20,7 +20,6 @@ class OutfitDataset(data.Dataset):
         data_mode = mode.split('_')[0] if '_' in mode else mode
 
         self.image_dir = osp.join(config['TRAINING_CONFIG']['IMG_DIR'], data_mode)
-        self.train_dir = config['TRAINING_CONFIG']['TRAIN_DIR']
         self.transform, self.mode = transform, mode
         self.seed = config['TRAINING_CONFIG']['SEED']
         self.data_num = config['TRAINING_CONFIG']['DATA_NUM']
