@@ -86,7 +86,7 @@ class FTVIS(object):
 
     def load_model(self):
 
-        last_ckpt = osp.join(self.model_dir, '1000-model.ckpt')
+        last_ckpt = osp.join('1000-model.ckpt')
         assert osp.exists(last_ckpt)
 
         ckpt_dict = torch.load(last_ckpt)
