@@ -76,9 +76,7 @@ class FTVIS(object):
         self.Emd = OldEmbedBlock(emd_ch, num_cls=e_num_cls)
         self.Emd = self.Emd.to(self.gpu).eval()
         
-        self.E = New_E(start_channel=self.e_start_ch,
-                        target_channel=self.encoder_last_ch,
-                        LR=self.e_LR, att=self.e_att, res_blk=self.e_res_blk).to(self.gpu)
+        self.E = New_E(target_channel=self.encoder_last_ch).to(self.gpu)
         self.E.eval()
 
         self.inception = models.inception_v3(aux_logits=False)
