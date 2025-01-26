@@ -34,7 +34,8 @@ class ResBlock(nn.Module):
         self.residual.append(nn.InstanceNorm2d(out_channels, affine=True))
         self.residual.append(nn.LeakyReLU(LR, inplace=True))
         self.residual = nn.Sequential(*self.residual)
-
+        
+        self.shor_cut.append(nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=stride, padding=1, bias=False))
         self.shor_cut.append(nn.InstanceNorm2d(out_channels, affine=True))
         self.shor_cut.append(nn.LeakyReLU(LR, inplace=True))
         self.shor_cut = nn.Sequential(*self.shor_cut)
