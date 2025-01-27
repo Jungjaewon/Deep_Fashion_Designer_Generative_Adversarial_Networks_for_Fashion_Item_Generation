@@ -30,5 +30,4 @@ def calculate_lpips(fake_dir, real_dir, device='cuda:0', version='0.1', net='ale
             d = loss_fn.forward(img_0, img_1)
             lpips_dist.append(d.item())
 
-
     return avg(lpips_dist), cnt

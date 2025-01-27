@@ -24,7 +24,6 @@ TRAINING_CONFIG:
   # Settings
   NUM_WORKER : 2
   MODE : 'result'
-  SEED : 0
 
   IMG_DIR : 'outfitdata_set3_4598'
   TAGGED_PLK : 'outfitdata_set3_tagged.plk'

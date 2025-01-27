@@ -38,43 +38,20 @@ def inception_score(dataset, cuda=True, gpu='0', batch_size=32, splits=10, netwo
     dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size,
                                              num_workers=0,
                                              shuffle=False,)
-    if network == 'vgg19_bn':
-        num_classes = 7
-        # Load inception model
-        weight_path = 'module-900000-model.ckpt'
-        model = models.vgg19_bn(pretrained=False, num_classes=num_classes)
+    
+    num_classes = 7
+    model = models.inception_v3(pretrained=False, aux_logits=False)
+    n_features = model.fc.in_features
+    model.fc = nn.Linear(n_features, num_classes)
 
-        if weight_path.startswith("module-"):
-            state_dict = torch.load(weight_path, map_location=lambda storage, loc: storage)
-            # state_dict = torch.load(model_path, map_location=self.device)
-            # https://github.com/computationalmedia/semstyle/issues/3
-            # https://github.com/pytorch/pytorch/issues/10622
-            # https://discuss.pytorch.org/t/saving-and-loading-torch-models-on-2-machines-with-different-number-of-gpu-devices/6666/2
-            from collections import OrderedDict
-            new_state_dict = OrderedDict()
-            for k, v in state_dict.items():
-                name = k[7:]  # remove `module.`
-                new_state_dict[name] = v
-            # load params
-            model.load_state_dict(new_state_dict)
-        else:
-            model.load_state_dict(torch.load(weight_path, map_location=lambda storage, loc: storage))
+    if img_size == 256:
+        ckpt = 'inception_014-98-model.ckpt'
     else:
-        num_classes = 7
-        model = models.inception_v3(pretrained=False, aux_logits=False)
-        n_features = model.fc.in_features
-        model.fc = nn.Linear(n_features, num_classes)
+        raise NotImplemented
 
-        if img_size == 256:
-            ckpt = 'inception_014-98-model.ckpt'
-        elif img_size == 299:
-            ckpt = 'inception_299_004-98-model.ckpt'
-        else:
-            raise NotImplemented
+    assert os.path.exists(ckpt)
 
-        assert os.path.exists(ckpt)
-
-        model.load_state_dict(torch.load(ckpt, map_location=lambda storage, loc: storage))
+    model.load_state_dict(torch.load(ckpt, map_location=lambda storage, loc: storage))
 
     model.eval()
     if torch.cuda.is_available():
@@ -116,7 +93,7 @@ def inception_score(dataset, cuda=True, gpu='0', batch_size=32, splits=10, netwo
 
 class Polyvore(data.Dataset):
 
-    def __init__(self, folder_name, network='vgg19_bn', img_size=256):
+    def __init__(self, folder_name, network='inception_v3', img_size=256):
         self.folder_name = folder_name
 
         assert network in ['inception_v3']
@@ -147,10 +124,3 @@ class Polyvore(data.Dataset):
 
     def __len__(self):
         return len(self.dataset)
-
-"""
-if __name__ == '__main__':
-    poly_vore = Polyvore('188000_images_full')
-    print("Calculating Inception Score...")
-    print(inception_score(poly_vore))
-"""
