@@ -4,12 +4,12 @@ import yaml
 
 def main(config, path):
 
-    if path.split('_')[0].startswith('ft_vis'):
+    if path.split('_')[1].startswith('ft_vis'):
         from ft_vis import FTVIS
         ft_vis = FTVIS(config)
         ft_vis.run()
-    elif path.split('_')[0].startswith('image'):
-        from image_get import IMAGEGEN
+    elif path.split('_')[1].startswith('image'):
+        from image_gen import IMAGEGEN
         image_gen = IMAGEGEN(config)
         image_gen.run()
 

@@ -13,7 +13,6 @@ from model import Generator as G
 from model import NewEncoder as New_E
 from model import OldEmbedBlock
 from data_loader import get_loader
-from sklearn.manifold import TSNE
 from tqdm import tqdm
 
 import matplotlib
@@ -173,7 +172,7 @@ class IMAGEGEN(object):
         with torch.no_grad():
             for item in tqdm([['test', self.test_loader]]):
                 mode, data_loader = item
-                for data in data_loader:
+                for data in tqdm(data_loader):
                     outfit_id, t_cat, t_idx, _, target_images, source_images = data
                     
                     outfit_id = int(outfit_id.item())
