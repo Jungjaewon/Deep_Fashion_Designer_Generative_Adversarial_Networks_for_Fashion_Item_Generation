@@ -233,7 +233,7 @@ def compute_statistics_of_path(path, model, batch_size, dims, device):
     return m, s, cnt
 
 
-def calculate_fid_given_paths(fake_dir, real_dir, network='inception_v3', batch_size=32, device='cuda:0', dims=2048, mode='base'):
+def calculate_fid_given_paths(fake_dir, real_dir, network='inception_v3', batch_size=32, device='cuda:0', dims=2048, mode='fashion'):
     """Calculates the FID of two paths"""
 
     assert network in ['vgg19', 'inception_v3']
