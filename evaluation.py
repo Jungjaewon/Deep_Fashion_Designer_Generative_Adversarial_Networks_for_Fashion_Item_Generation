@@ -12,7 +12,7 @@ from eval_part.eval_lpips import calculate_lpips
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--score_dir', type=str, default='./image_reuslt', help='a directory for evaluation')
+    parser.add_argument('--score_dir', type=str, default='./image_result', help='a directory for evaluation')
     parser.add_argument('--orgin_img_dir', type=str, default='./test_img/test', help='a directory for GT')
     parser.add_argument('--i_score_net', type=str, default='inception_v3', choices=['vgg19_bn', 'inception_v3'])
     params = parser.parse_args()
