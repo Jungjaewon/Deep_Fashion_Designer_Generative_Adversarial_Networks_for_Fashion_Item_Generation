@@ -14,6 +14,7 @@ from model import NewEncoder as New_E
 from model import OldEmbedBlock
 from data_loader import get_loader
 from tqdm import tqdm
+from torchvision.utils import save_image
 
 import matplotlib
 matplotlib.use('agg')
