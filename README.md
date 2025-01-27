@@ -10,18 +10,18 @@ Keywords: generative adversarial networks; fashion image synthesis; fashion comp
 conda env create -f environment.yaml
 ```
 
-## Dataset Download
+## Dataset and Check Point Download
 ```
 bash dataset_down.sh && unzip outfitdata_set3.zip
 ```
-## Test Image
+## Test Image Generation
 ![result_image](imgs/electronics-14-00220-g004.webp)
 ```
-python3 main.py --config get_resut.yml
+python3 main.py --config config_image_gen.yml
 ```
 ## Feature Embedding Space
 ![result_image](imgs/electronics-14-00220-g003.webp)
 ```
-python3 main.py --config ft_vis.yml
+python3 main.py --config config_ft_vis.yml
 ```
 ## Reference

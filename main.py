@@ -4,15 +4,11 @@ import yaml
 
 def main(config, path):
 
-    if path.startswith('ft_vis'):
+    if path.split('_')[0].startswith('ft_vis'):
         from ft_vis import FTVIS
         ft_vis = FTVIS(config)
         ft_vis.run()
-    elif path.startswith('score'):
-        from get_score import SCORE
-        vis = SCORE(config)
-        vis.run('test')
-    elif path.startswith('image'):
+    elif path.split('_')[0].startswith('image'):
         from image_get import IMAGEGEN
         image_gen = IMAGEGEN(config)
         image_gen.run()
