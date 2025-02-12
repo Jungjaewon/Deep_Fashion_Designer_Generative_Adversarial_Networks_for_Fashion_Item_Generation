@@ -198,12 +198,12 @@ class FTVIS(object):
 
                     if mode == 'train':
                         train_feature_list.append(latent_code.cpu().squeeze().detach().numpy())
-                        #train_target_list.append(pred_idx)
-                        train_target_list.append(t_cat.cpu().squeeze().detach().numpy())
+                        train_target_list.append(pred_idx)
+                        #train_target_list.append(t_cat.cpu().squeeze().detach().numpy())
                     elif mode == 'test':
                         test_feature_list.append(latent_code.cpu().squeeze().detach().numpy())
-                        #test_target_list.append(pred_idx)
-                        test_target_list.append(t_cat.cpu().squeeze().detach().numpy())
+                        test_target_list.append(pred_idx)
+                        #test_target_list.append(t_cat.cpu().squeeze().detach().numpy())
 
         total_feature_list.extend(train_feature_list)
         total_feature_list.extend(test_feature_list)
