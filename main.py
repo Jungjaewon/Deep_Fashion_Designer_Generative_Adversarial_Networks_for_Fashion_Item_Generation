@@ -4,11 +4,11 @@ import yaml
 
 def main(config, path):
 
-    if path.split('_')[1].startswith('ft_vis'):
+    if path.split('config_')[1].startswith('ft_vis'):
         from ft_vis import FTVIS
         ft_vis = FTVIS(config)
         ft_vis.run()
-    elif path.split('_')[1].startswith('image'):
+    elif path.split('config_')[1].startswith('image'):
         from image_gen import IMAGEGEN
         image_gen = IMAGEGEN(config)
         image_gen.run()
