@@ -192,9 +192,9 @@ class FTVIS(object):
 
                     latent_code = self.processing_latent_code(source_images, t_cat)
 
-                    #prediction = self.inception(target_images)
-                    #_, pred_idx = torch.max(prediction, 1)
-                    #pred_idx = pred_idx.item()
+                    prediction = self.inception(target_images)
+                    _, pred_idx = torch.max(prediction, 1)
+                    pred_idx = pred_idx.item()
 
                     if mode == 'train':
                         train_feature_list.append(latent_code.cpu().squeeze().detach().numpy())
