@@ -7,6 +7,7 @@ TRAINING_CONFIG:
   BATCH_SIZE: 16
   NEG_RATE : 0.35
   NEG_MODE : 'BLACK' # BLACK, FIRST, None
+  SEED : 0
 
   F_ADD : 'False'
   S_ADD : 'True'
