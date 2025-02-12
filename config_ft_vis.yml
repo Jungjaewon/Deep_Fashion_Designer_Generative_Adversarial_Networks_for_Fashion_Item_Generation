@@ -27,6 +27,7 @@ TRAINING_CONFIG:
   MODE : 'result'
 
   IMG_DIR : 'outfitdata_set3_4598'
+  TAGGED_PLK : 'outfitdata_set3_tagged.plk'
   RESULT_DIR : 'fit_vis_result'
 
   # GPU
